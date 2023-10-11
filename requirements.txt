@@ -1,0 +1,7 @@
+uvicorn
+fastapi[all]
+transformers
+torch
+matplotlib
+numpy
+os
