@@ -11,9 +11,11 @@ async def hello_world():
     return "test api"
 
 @app.post("/predict/image")
-async def prediction_api(file: UploadFile = File(...)):
-    # read an image uploaded bu user
-    image = read_imagefile(file)
+async def prediction_api(
+    file: UploadFile = File(...)
+    ):
+    # read an image uploaded by user
+    image = read_imagefile(await file.read())
     # make a prediction
     output = segment(image)
     return output
